@@ -1,0 +1,101 @@
+.fav-movieCard {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 10px;
+  max-width: 500px;
+  padding: 10px;
+  height: 100vh;
+}
+
+@media only screen and (max-width: 768px) {
+  .fav-movieCard {
+    width: 500px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .fav-movieCard .fav-posterBlock img {
+    width: 150px;
+    height: 200px;
+  }
+}
+@media only screen and (max-width: 1024px) {
+  .fav-movieCard {
+    max-width: 500px;
+  }
+  .fav-movieCard .fav-posterBlock img {
+    width: 150px;
+    height: 200px;
+  }
+}
+
+.fav-movieCard .fav-posterBlock {
+  position: relative;
+  width: 100%;
+  margin-top: 50px;
+  aspect-ratio: 1/1.5;
+  background-size: cover;
+  background-position: center;
+  margin-bottom: 30px;
+  display: flex;
+  flex-shrink: 1;
+  align-items: flex-end;
+  justify-content: space-between;
+  padding: 10px;
+  transition: all ease 0.5s;
+}
+
+.fav-movieCard .fav-posterBlock img {
+  width: 195px;
+  height: 300px;
+  -o-object-fit: cover;
+  object-fit: cover;
+  -o-object-position: center;
+  object-position: center;
+}
+
+.fav-movieCard .fav-textBlock {
+  color: white;
+  display: flex;
+  flex-direction: column;
+}
+
+.fav-movieCard .fav-textBlock .fav-title {
+  font-size: 16px;
+  margin-bottom: 10px;
+  line-height: 24px;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+@media only screen and (min-width: 768px) {
+  .fav-movieCard .fav-textBlock .fav-title {
+    font-size: 20px;
+  }
+}
+
+.fav-movieCard .fav-textBlock .fav-date {
+  font-size: 14px;
+  opacity: 0.5;
+}
+
+.fav-posterBlock:hover {
+  opacity: 0.5;
+}
+
+.fav-movieCard {
+  position: relative;
+}
+
+.fav-removeButton {
+  display: block;
+  position: absolute;
+  top: 150px;
+  left: 90px;
+  z-index: 1;
+  font-size: 2rem;
+  color: white;
+  cursor: pointer;
+}
