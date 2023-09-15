@@ -15,6 +15,9 @@ import Details from "./pages/details/Details";
 import SearchResult from "./pages/searchResult/SearchResult";
 import Explore from "./pages/explore/Explore";
 import PageNotFound from "./pages/404/PageNotFound";
+import axios from "axios";
+
+axios.defaults.baseURL = "https://movie-site-l8v5.onrender.com";
 
 function App() {
   const [user, setUser] = useState("");

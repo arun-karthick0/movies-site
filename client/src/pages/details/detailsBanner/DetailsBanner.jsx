@@ -41,7 +41,7 @@ const DetailsBanner = ({ video, crew, user }) => {
     if (data?.id !== undefined && data?.id !== null) {
       const MovieId = { MovieId: data?.id };
       axios
-        .get("http://localhost:5875/getcomment", { params: MovieId })
+        .get("/getcomment", { params: MovieId })
         .then((res) => {
           setFetchComment(res?.data?.data?.comments);
         });
@@ -78,7 +78,7 @@ const DetailsBanner = ({ video, crew, user }) => {
     };
 
     axios
-      .post("http://localhost:5875/comments", newComments)
+      .post("/comments", newComments)
       .then((res) => {
         setComments({ ...comments, newComments });
         toast.success("comments added successfully");
@@ -98,7 +98,7 @@ const DetailsBanner = ({ video, crew, user }) => {
       };
 
       axios
-        .post("http://localhost:5875/add", addData)
+        .post("/add", addData)
         .then((res) => {
           toast.success("Movie added");
         })
@@ -120,7 +120,7 @@ const DetailsBanner = ({ video, crew, user }) => {
         Movie_id: data?.id,
       };
       axios
-        .delete("http://localhost:5875/delete", {
+        .delete("/delete", {
           data: deleteData,
         })
         .then((res) => {

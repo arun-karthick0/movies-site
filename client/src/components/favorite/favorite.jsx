@@ -4,15 +4,13 @@ import axios from "axios";
 import dayjs from "dayjs";
 import { toast } from "react-toastify";
 
-axios.defaults.baseURL = "https://moviez-website.onrender.com";
-
 const Favorite = ({ user, loggedIn }) => {
   const [list, setList] = useState();
   const [hoveredIndex, setHoveredIndex] = useState(null);
 
   useEffect(() => {
     axios
-      .get(`http://localhost:5875/liked/${user || loggedIn}`)
+      .get(`/liked/${user || loggedIn}`)
       .then((res) => {
         setList(res?.data);
       })
@@ -22,7 +20,7 @@ const Favorite = ({ user, loggedIn }) => {
   const remove = (movie_id) => {
     console.log(movie_id);
     axios
-      .put(`http:localhost:5875/remove`, { user, movie_id })
+      .put(`/remove`, { user, movie_id })
       .then((res) => {
         toast.success("Removed from list");
         setList(res?.data);
