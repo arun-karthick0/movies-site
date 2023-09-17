@@ -40,11 +40,9 @@ const DetailsBanner = ({ video, crew, user }) => {
   useEffect(() => {
     if (data?.id !== undefined && data?.id !== null) {
       const MovieId = { MovieId: data?.id };
-      axios
-        .get("/getcomment", { params: MovieId })
-        .then((res) => {
-          setFetchComment(res?.data?.data?.comments);
-        });
+      axios.get("/getcomment", { params: MovieId }).then((res) => {
+        setFetchComment(res?.data?.data?.comments);
+      });
     }
   }, [data, del, fetchComment, comments, name]);
 
@@ -180,6 +178,7 @@ const DetailsBanner = ({ video, crew, user }) => {
                       {user && (
                         <div className="addList" onClick={() => addList()}>
                           <GrAddCircle className="circle" />
+                          Add to List
                         </div>
                       )}
                     </div>

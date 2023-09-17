@@ -71,7 +71,7 @@ const Header = ({ user, setUser, loggedIn }) => {
       navigate("/explore/movie");
     } else if (type === "tv") {
       navigate("/explore/tv");
-    } else {
+    } else if (type === "fav") {
       navigate("/fav");
     }
     setMobileMenu(false);
@@ -111,20 +111,18 @@ const Header = ({ user, setUser, loggedIn }) => {
           <li className="menuItem" onClick={() => navigationHandler("tv")}>
             TV Shows
           </li>
-          {loggedIn && (
+          {/* {loggedIn && (
             <li
               li
               className="menuItem"
               onClick={() => navigationHandler("fav")}
             >
               My list
-            </li>
-          )}
+            </li> */}
 
           <li className="menuItem">
             <HiOutlineSearch onClick={openSearch} />
           </li>
-
           {loggedIn ? (
             <div className="profile-card">
               <div className="logo-initial ">
@@ -141,9 +139,9 @@ const Header = ({ user, setUser, loggedIn }) => {
                   <span onClick={logout}>
                     <div className="option">logout</div>
                   </span>
-                  {/* <span onClick={review}>
-                    <div className="option">My Review</div>
-                  </span> */}
+                  <span onClick={() => navigationHandler("fav")}>
+                    <div className="option">My List</div>
+                  </span>
                 </div>
               )}
             </div>
