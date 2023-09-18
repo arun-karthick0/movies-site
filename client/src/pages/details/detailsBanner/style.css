@@ -226,6 +226,7 @@
 .comment-area-section {
   display: grid;
   gap: 10px;
+  margin: 30px 10px;
   grid-template-columns: 1fr 1fr;
 }
 

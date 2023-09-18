@@ -35,7 +35,7 @@ const DetailsBanner = ({ video, crew, user }) => {
       setName(data?.docs?.map((doc) => ({ ...doc.data() })));
     };
     getName();
-  }, []);
+  }, [data]);
 
   useEffect(() => {
     if (data?.id !== undefined && data?.id !== null) {
@@ -44,7 +44,7 @@ const DetailsBanner = ({ video, crew, user }) => {
         setFetchComment(res?.data?.data?.comments);
       });
     }
-  }, [data, del, fetchComment, comments, name]);
+  }, [data, del, fetchComment, comments, name,user]);
 
   const { url } = useSelector((state) => state.home);
 
@@ -308,7 +308,7 @@ const DetailsBanner = ({ video, crew, user }) => {
 
         <div className="comment-text">
           <div className="comment-area">
-            <textarea rows={4} cols={10} onChange={handleChange} />
+            <textarea rows={4} cols={10} onChange={handleChange} placeholder="Enter your comment here" />
           </div>
         </div>
         <button className="comment-btn">post</button>
